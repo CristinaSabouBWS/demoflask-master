@@ -1,0 +1,16 @@
+<p>Actors list</p>
+<ul id="actors">
+    {% for actor in actors %}
+        <li>
+            {% set local_url = "http://127.0.0.1:5000/actors/"+actor['uid'] %}
+            <a href="{{ local_url }}">{{ actor["name"] }}</a>
+
+            
+        </li>
+        <hr>
+    {% endfor %}
+</ul>
+
+<br>
+<a href="http://127.0.0.1:5000/actors">Add new actor</a>
+

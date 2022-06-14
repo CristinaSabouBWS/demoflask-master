@@ -1,0 +1,16 @@
+<p>Movie list</p>
+<ul id="movies">
+    {% for movie in movies %}
+        <li>
+            {% set local_url = "http://127.0.0.1:5000/movies/"+movie['uid'] %}
+            <a href="{{ local_url }}">{{ movie["title"] }}</a>
+
+            
+        </li>
+        <hr>
+    {% endfor %}
+</ul>
+
+<br>
+<a href="http://127.0.0.1:5000/movies/newmovie">Add new movie</a>
+

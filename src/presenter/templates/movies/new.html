@@ -1,0 +1,22 @@
+<p>Create a new movie</p>
+    <form method="post" url='/movies/new'>
+        <label for="movie">Movie</label>
+        <br>
+        <input type="text" name="genre" placeholder="genre"></input>
+        <input type="text" name="date_of_scraping" placeholder="date_added"></input>
+        <input type="text" name="directors" placeholder="directors"></input>
+        <input type="text" name="title" placeholder="Movie title"></input>
+        <input type="number" name="rating" placeholder="Movie rating"></input>
+        <input type="number" name="release_year" placeholder="Movie release_year"></input>
+        <input type="text" name="top_cast" placeholder="Movie top_cast"></input>
+        <input type="text" name="url" placeholder="Movie url"></input>
+        <input type="text" name="uid" placeholder="Movie uid"></input>
+        <input type="text" name="image_url" placeholder="Movie image_url"></input>
+        <input type="text" name="image_path" placeholder="Movie image_path"></input>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if errors %}
+        {{ errors }}
+    {%endif%}
