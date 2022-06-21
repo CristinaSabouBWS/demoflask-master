@@ -1,0 +1,19 @@
+{% extends 'homepage/index.html' %}
+{% block content %}
+<p>Add a new actor</p>
+    <form method="post" url='/actors/new'>
+        <label for="actor">Actor</label>
+        <br>
+        <input type="text" name="name" placeholder="name"></input>
+        <input type="text" name="uid" placeholder="uid"></input>
+        <input type="text" name="filmography_movie_url" placeholder="filmography_movie_url"></input>
+        <input type="text" name="filmography_movie_title" placeholder="filmography_movie_title"></input>
+        </input>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if errors %}
+        {{ errors }}
+    {%endif%}
+{% endblock %}

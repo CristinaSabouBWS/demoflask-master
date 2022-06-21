@@ -1,4 +1,11 @@
-<p>Welcome!</p>
-<a href="http://127.0.0.1:5000/movies/">Movies</a>
+<hr>
+<a href="/">Home</a>
 <br>
-<a href="http://127.0.0.1:5000/actors/">Actors</a>
+<a href="/movies/">Movies</a>
+<br>
+<a href="/actors/">Actors</a>
+<hr>
+{% block content %}
+<p>Welcome!</p>
+<a href="/upload">Upload</a>
+{% endblock %}

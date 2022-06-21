@@ -1,16 +1,24 @@
+{% extends 'homepage/index.html' %}
+{% block content %}
 <p>Actors list</p>
 <ul id="actors">
-    {% for actor in actors %}
-        <li>
-            {% set local_url = "http://127.0.0.1:5000/actors/"+actor['uid'] %}
-            <a href="{{ local_url }}">{{ actor["name"] }}</a>
-
-            
-        </li>
-        <hr>
-    {% endfor %}
+    {% if current_page == 1 %}
+            <li>
+                <a  href="#">Previous</a></li>
+    {% else %}
+            <li>
+                <a href="{{ url_for('actors.index', page=current_page - 1, items=items_per_page) }}">Previous</a></li>
+    {% endif %}
+     <li>
+                <a class="button-next" href="{{ url_for('actors.index', page=current_page + 1, items=items_per_page) }}">Next</a></li>
 </ul>
 
-<br>
-<a href="http://127.0.0.1:5000/actors">Add new actor</a>
+    {% for actor in actors %}
+            <p><a href="{{ url_for('actors.show', id=actor.id) }}">{{ actor["name"] }}</a>    </p> 
+        <br>
+    {% endfor %}
+
+<hr>
+<a href="/actors/new">Add new actor</a>
+{% endblock %}
 

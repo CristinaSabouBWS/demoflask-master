@@ -16,13 +16,10 @@ class Actor(db.Model):
     def __repr__(self):
         return "<Actor id=%s %r>" % (self.id, self.name)
 
-    @validates("uid")
-    def validate_uid(self, key, uid):
-        # ipdb.set_trace()
-        # assert len(uid) > 2, "uid not valid"
-        if not getattr(self, "errors", None):
-            self.errors = []
-        if len(uid) < 2:
-            self.errors.append("uid is not valid")
-
-        return uid
+    @validates("uid", "name")
+    def validate_fields(self, keys, values):
+        if keys == "uid":
+            assert values != "", "uid is not valid"
+        if keys == "name":
+            assert values != "", "name is not valid"
+        return values

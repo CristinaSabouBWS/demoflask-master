@@ -1,10 +1,7 @@
+{% extends 'homepage/index.html' %}
+{% block content %}
 <p>Movie</p>
 <p>{{movie["title"]}}</p>
-{% set top_cast = movie["top_cast"] %}
-{% set top_cast = top_cast.replace('"', '') %}
-{% set top_cast = top_cast.strip("]") %}
-{% set top_cast = top_cast.strip("[") %}
-{% set actors = top_cast.split(", ") %}
 
 <ul>
 	{% for actor in actors %}
@@ -17,4 +14,5 @@
     {% endfor %}
 </ul>
 
-<!-- <a href="http://127.0.0.1:5000/movies/newmovie">Add new movie</a> -->
+<a href="{{ url_for('movies.update', id=movie.id) }}">Edit Movie</a>
+{% endblock %}

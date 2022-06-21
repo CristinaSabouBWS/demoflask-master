@@ -3,8 +3,14 @@ from flask_sqlalchemy import SQLAlchemy
 import time
 from presenter.configuration import config
 
+UPLOAD_FOLDER = "/tmp"
+ALLOWED_EXTENSIONS = {"json"}
+
 app = Flask(__name__)
 
+app.config.update(config().as_dict())
+app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+app.config["SECRET_KEY"] = "HaHA($(#$$33--"
 
 app.config.update(config().as_dict())
 db = SQLAlchemy(app)
@@ -17,9 +23,6 @@ from presenter.controllers.movies import movies_blueprint
 
 app.register_blueprint(movies_blueprint)
 
-from presenter.controllers.new_movie import newmovie_blueprint
-
-app.register_blueprint(newmovie_blueprint)
 
 from presenter.controllers.actors import actors_blueprint
 
