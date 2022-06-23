@@ -2,7 +2,7 @@ from flask import Flask, Blueprint, jsonify, render_template, url_for, request, 
 from werkzeug.utils import secure_filename
 import os
 
-movies_blueprint = Blueprint("movies", __name__)
+movies_blueprint = Blueprint("moviesss", __name__)
 
 from presenter.app import app, db
 from presenter.models.movie import Movie

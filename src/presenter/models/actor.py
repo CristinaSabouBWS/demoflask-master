@@ -12,6 +12,7 @@ class Actor(db.Model):
     uid = Column(String(10), nullable=False)
     filmography_movie_url = Column(String(500))
     filmography_movie_title = Column(String(500))
+    birth_year = Column(Integer)
 
     def __repr__(self):
         return "<Actor id=%s %r>" % (self.id, self.name)
