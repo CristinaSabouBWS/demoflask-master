@@ -8,4 +8,12 @@
 {% block content %}
 <p>Welcome!</p>
 <a href="/upload">Upload</a>
+<br>
+<hr>
+<form method="get" action="{{ url_for('search.index') }}">
+    <label for="search">Search</label>
+    <br>
+    <input type="text" name="q" placeholder="Search..."></input>
+   	<button type="submit">Submit</button>
+</form>
 {% endblock %}

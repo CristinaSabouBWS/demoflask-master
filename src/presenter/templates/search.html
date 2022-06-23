@@ -1,0 +1,19 @@
+{% extends 'homepage/index.html' %}
+{% block content %}
+<p>Search</p>
+{% if current_page == 1 %}
+
+    	<a  href="#">Previous</a>
+{% else %}
+    	<a href="{{ url_for('search.index',q=query, page=current_page - 1, items=items_per_page) }}">Previous</a>
+{% endif %}
+	    <a class="button-next" href="{{ url_for('search.index', q=query,page=current_page + 1, items=items_per_page) }}">Next</a>
+<hr>
+<br>
+{% for movie in movies %}
+	<p><a href="{{ movie.id }}">{{ movie.title }}</a></p>
+{% endfor %}
+{% if mess %}
+        {{ mess }}
+{% endif %}
+{% endblock %}

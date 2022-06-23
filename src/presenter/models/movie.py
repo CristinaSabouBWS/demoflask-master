@@ -25,12 +25,12 @@ class Movie(db.Model):
         return "<Movie id=%s %r>" % (self.uid, self.title)
 
     @validates("uid", "title", "url")
-    def validate_uid(self, keys, values):
-        if keys == "uid":
+    def validate_uid(self, key, values):
+        if key == "uid":
             assert values != "", "uid not valid"
-        if keys == "title":
+        if key == "title":
             assert values != "", "title can not be blank"
-        if keys == "url":
+        if key == "url":
             assert values != "", "url can nor be blank"
 
         return values

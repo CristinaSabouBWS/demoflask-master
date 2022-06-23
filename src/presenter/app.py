@@ -27,3 +27,7 @@ app.register_blueprint(movies_blueprint)
 from presenter.controllers.actors import actors_blueprint
 
 app.register_blueprint(actors_blueprint)
+
+from presenter.services.search import search_blueprint
+
+app.register_blueprint(search_blueprint)
