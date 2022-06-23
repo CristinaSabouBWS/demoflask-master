@@ -1,4 +1,8 @@
-class SearchService:
+from presenter.models.movie import Movie
+from presenter.models.actor import Actor
+
+
+class Search:
     def search(self, query=""):
         results = dict()
         for model, attribute in self.searchable_models():
@@ -6,8 +10,6 @@ class SearchService:
         return results
 
     def searchable_models(self):
-        from presenter.models.movie import Movie
-        from presenter.models.actor import Actor
 
         return [(Movie, "title"), (Actor, "name")]
 

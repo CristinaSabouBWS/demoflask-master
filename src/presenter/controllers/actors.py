@@ -2,13 +2,13 @@ from flask import Flask, Blueprint, jsonify, render_template, url_for, request, 
 from werkzeug.utils import secure_filename
 import os
 
+from presenter.models.actor import Actor
+
 actors_blueprint = Blueprint("actors", __name__)
 
-from presenter.app import app, db
-from presenter.models.actor import Actor
 import ipdb
 import json
-from presenter.app import app, db, ALLOWED_EXTENSIONS, UPLOAD_FOLDER
+from presenter.app import ALLOWED_EXTENSIONS, UPLOAD_FOLDER
 
 
 def allowed_file(filename):

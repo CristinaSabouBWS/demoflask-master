@@ -1,5 +1,5 @@
-from presenter.services.search import SearchService
+from presenter.services.search_service import Search
 
 
 def test_dummy():
-    SearchService().search("")
+    Search().search("")
