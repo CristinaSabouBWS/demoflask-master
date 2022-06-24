@@ -28,9 +28,9 @@ from presenter.controllers.actors import actors_blueprint
 
 app.register_blueprint(actors_blueprint)
 
-from presenter.services.search import search_blueprint
+# from presenter.services.search import search_blueprint
 
-app.register_blueprint(search_blueprint)
+# app.register_blueprint(search_blueprint)
 
 
 # blank values in file upload errors

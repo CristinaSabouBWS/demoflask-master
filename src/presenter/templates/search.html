@@ -5,13 +5,20 @@
 
     	<a  href="#">Previous</a>
 {% else %}
-    	<a href="{{ url_for('search.index',q=query, page=current_page - 1, items=items_per_page) }}">Previous</a>
+    	<a href="{{ url_for('home.search',q=query, page=current_page - 1, items=items_per_page) }}">Previous</a>
 {% endif %}
-	    <a class="button-next" href="{{ url_for('search.index', q=query,page=current_page + 1, items=items_per_page) }}">Next</a>
+	    <a class="button-next" href="{{ url_for('home.search', q=query,page=current_page + 1, items=items_per_page) }}">Next</a>
 <hr>
 <br>
+<p>Movies</p>
 {% for movie in movies %}
-	<p><a href="{{ movie.id }}">{{ movie.title }}</a></p>
+	<p><a href="{{ url_for('movies.show', id=movie.id) }}">{{ movie.title }}</a></p>
+{% endfor %}
+
+<hr>
+<p>Actors</p>
+{% for actor in actors %}
+	<p><a href="{{url_for('actors.show', id=actor.id) }}">{{ actor.name }}</a></p>
 {% endfor %}
 {% if mess %}
         {{ mess }}
