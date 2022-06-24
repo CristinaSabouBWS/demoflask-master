@@ -8,12 +8,8 @@ from presenter.services.search import Search
 
 @home_blueprint.route("/")
 def index():
-    return render_template("homepage/index.html")
 
-
-@home_blueprint.route("/search")
-def search():
-    search_string = request.args.get("q")
+    search_string = request.args.get("q", "")
     service = Search()
     search_result = service.search(search_string)
 
@@ -36,7 +32,7 @@ def search():
     #     mess = "No more items"
 
     return render_template(
-        "/search.html",
+        "homepage/index.html",
         movies=movie_result,
         actors=actors_result,
         query=search_string,
