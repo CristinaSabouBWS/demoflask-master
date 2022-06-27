@@ -133,11 +133,6 @@ def update(id):
     return redirect("/movies")
 
 
-@movies_blueprint.route("/upload")
-def upload_file():
-    return render_template("/upload/index.html")
-
-
 @movies_blueprint.route("/movies/upload", methods=["POST"])
 def upload():
     if "file" not in request.files:

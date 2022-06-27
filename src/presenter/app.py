@@ -34,4 +34,7 @@ app.register_blueprint(actors_blueprint)
 
 
 # blank values in file upload errors
-# check db versions
+# move search bar and search results
+# login
+# register model and table
+# login class cu autentificare, encription
