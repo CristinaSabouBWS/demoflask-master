@@ -23,11 +23,16 @@ class Search:
 
     def paginated_search(self, query, per_page=5, current_page=1):
         search_result = self.search(query)
-
-        movie_result = search_result["movies"]
-        actors_result = search_result["actors"]
+        movie_mess = ""
+        actors_mess = ""
         per_page = request.args.get("items", 5, type=int)
         current_page = request.args.get("page", 1, type=int)
+        movie_result = search_result["movies"]
+        actors_result = search_result["actors"]
+        if movie_result == []:
+            movie_mess = f"No movies for query {query}"
+        if actors_result == []:
+            actors_mess = f"No actors for query {query}"
 
         movie_count = len(movie_result)
         actors_count = len(actors_result)
@@ -40,4 +45,6 @@ class Search:
         search_result["actors"] = actors
         search_result["per_page"] = per_page
         search_result["current_page"] = current_page
+        search_result["movie_mess"] = movie_mess
+        search_result["actors_mess"] = actors_mess
         return search_result

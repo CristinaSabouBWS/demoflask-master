@@ -4,9 +4,10 @@ from presenter.app import db
 from sqlalchemy.orm import validates
 import ipdb
 import re
+from flask_login import UserMixin
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = "users"
     id = Column(Integer, nullable=False, primary_key=True, unique=True)
     name = Column(String(255), nullable=False)

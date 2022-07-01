@@ -15,6 +15,7 @@ app.config["SECRET_KEY"] = "HaHA($(#$$33--"
 app.config.update(config().as_dict())
 db = SQLAlchemy(app)
 
+
 from presenter.controllers.homepage import home_blueprint
 
 app.register_blueprint(home_blueprint)
@@ -28,13 +29,19 @@ from presenter.controllers.actors import actors_blueprint
 
 app.register_blueprint(actors_blueprint)
 
-# from presenter.services.search import search_blueprint
+# from presenter.controllers.login import login_blueprint
 
-# app.register_blueprint(search_blueprint)
+# app.register_blueprint(login_blueprint)
 
+# from presenter.controllers.register import register_blueprint
+
+# app.register_blueprint(register_blueprint)
+
+
+# search nothing was found
 
 # blank values in file upload errors
-# move search bar and search results
 # login
-# register model and table
 # login class cu autentificare, encription
+# functie current user sa returneze current user sau nimic daca nu este user logat
+# sa tinem datele astea fara sa mai apelam db d
