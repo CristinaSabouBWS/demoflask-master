@@ -1,0 +1,26 @@
+{% extends 'homepage/index.html' %}
+{% block content %}
+
+<p>Update {{movie.title}}</p>
+
+    <form method="post" url="{{ url_for('movies.update', id=movie['id']) }}">
+        <label for="movie">Movie</label>
+        <br>
+        <input type="text" name="genre" placeholder="genre" value ="{{ movie.genre }}"></input>
+        <input type="text" name="directors" placeholder="directors" value ="{{ movie.directors }}"></input>
+        <input type="text" name="title" placeholder="Movie title" value ="{{ movie.title }}"></input>
+        <input type="text" name="rating" placeholder="Movie rating" value ="{{ movie.rating }}"></input>
+        <input type="text" name="release_year" placeholder="Movie release_year" value ="{{ movie.release_year }}"></input>
+        <input type="text" name="top_cast" placeholder="Movie top_cast" value ="{{ movie.top_cast }}"></input>
+        <input type="text" name="url" placeholder="Movie url" value ="{{ movie.url }}"></input>
+        <input type="text" name="uid" placeholder="Movie uid" value ="{{ movie.uid }}"></input>
+        <input type="text" name="image_url" placeholder="Movie image_url" value ="{{ movie.image_url }}"></input>
+        <input type="text" name="image_path" placeholder="Movie image_path" value ="{{ movie.image_path }}"></input>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if errors %}
+        {{ errors }}
+    {%endif%}
+{% endblock %}

@@ -1,16 +1,21 @@
+{% extends 'homepage/index.html' %}
+{% block content %}
 <p>Movie list</p>
-<ul id="movies">
-    {% for movie in movies %}
+<ul>
+        {% if current_page == 1 %}
+            <li>
+                <a  href="#">Previous</a></li>
+        {% else %}
+            <li>
+                <a href="{{ url_for('movies.index', page=current_page - 1, items=items_per_page) }}">Previous</a></li>
+        {% endif %}
         <li>
-            {% set local_url = "http://127.0.0.1:5000/movies/"+movie['uid'] %}
-            <a href="{{ local_url }}">{{ movie["title"] }}</a>
-
-            
-        </li>
-        <hr>
-    {% endfor %}
+                <a class="button-next" href="{{ url_for('movies.index', page=current_page + 1, items=items_per_page) }}">Next</a></li>
 </ul>
-
+ {% for movie in movies %}
+    <p><a href="{{ movie.id }}">{{ movie.title }}</a></p>
+{% endfor %}
 <br>
-<a href="http://127.0.0.1:5000/movies/newmovie">Add new movie</a>
+<a href="/movies/new">Add new movie</a>
 
+{% endblock %}

@@ -1,4 +1,47 @@
-<p>Welcome!</p>
-<a href="http://127.0.0.1:5000/movies/">Movies</a>
+<hr>
+<a href="/">Home</a>
 <br>
-<a href="http://127.0.0.1:5000/actors/">Actors</a>
+<a href="/movies/">Movies</a>
+<br>
+<a href="/actors/">Actors</a>
+<hr>
+{% block content %}
+
+<p>Welcome!</p>
+<a href="/upload">Upload</a>
+<br>
+<hr>
+<form method="get" action="{{ url_for('home.index') }}">
+    <label for="search">Search</label>
+    <br>
+    <input type="text" name="q" placeholder="Search..." value="{{query}}"></input>
+    <button type="submit">Submit</button>
+</form>
+
+
+{% if current_page == 1 %}
+
+        <a  href="#">Previous</a>
+{% else %}
+        <a href="{{ url_for('home.index',q=query, page=current_page - 1, items=items_per_page) }}">Previous</a>
+{% endif %}
+        <a class="button-next" href="{{ url_for('home.index', q=query,page=current_page + 1, items=items_per_page) }}">Next</a>
+<hr>
+<br>
+<p>Movies</p>
+{% for movie in movies %}
+    <p><a href="{{ url_for('movies.show', id=movie.id) }}">{{ movie.title }}</a></p>
+{% endfor %}
+{% if movie_mess %}
+        {{ movie_mess }}
+{% endif %}
+
+<hr>
+<p>Actors</p>
+{% for actor in actors %}
+    <p><a href="{{url_for('actors.show', id=actor.id) }}">{{ actor.name }}</a></p>
+{% endfor %}
+{% if actors_mess %}
+        {{ actors_mess }}
+{% endif %}
+{% endblock %}

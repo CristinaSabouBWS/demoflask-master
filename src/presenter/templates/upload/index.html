@@ -1,0 +1,25 @@
+{% extends 'homepage/index.html' %}
+{% block content %}
+<p>Upload</p>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<p>Movies upload</p>
+ <form method="post" enctype="multipart/form-data" action="{{ url_for('movies.upload') }}">
+	      <input type="file" name="file">
+	      <input type="submit" value="Upload">
+	    </form>
+<br>
+<p>Actors upload</p>
+<form method="post" enctype="multipart/form-data" action="{{ url_for('actors.upload') }}">
+	      <input type="file" name="file">
+	      <input type="submit" value="Upload">
+	    </form>
+{% endblock %}

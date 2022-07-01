@@ -1,3 +1,5 @@
+{% extends 'homepage/index.html' %}
+{% block content %}
 <p>Create a new movie</p>
     <form method="post" url='/movies/new'>
         <label for="movie">Movie</label>
@@ -6,8 +8,8 @@
         <input type="text" name="date_of_scraping" placeholder="date_added"></input>
         <input type="text" name="directors" placeholder="directors"></input>
         <input type="text" name="title" placeholder="Movie title"></input>
-        <input type="number" name="rating" placeholder="Movie rating"></input>
-        <input type="number" name="release_year" placeholder="Movie release_year"></input>
+        <input type="text" name="rating" placeholder="Movie rating"></input>
+        <input type="text" name="release_year" placeholder="Movie release_year"></input>
         <input type="text" name="top_cast" placeholder="Movie top_cast"></input>
         <input type="text" name="url" placeholder="Movie url"></input>
         <input type="text" name="uid" placeholder="Movie uid"></input>
@@ -20,3 +22,4 @@
     {% if errors %}
         {{ errors }}
     {%endif%}
+{% endblock %}

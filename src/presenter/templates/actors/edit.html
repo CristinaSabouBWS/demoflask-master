@@ -1,0 +1,19 @@
+{% extends 'homepage/index.html' %}
+{% block content %}
+<p>Change actor {{actor.name}}</p>
+    <form method="post" url="{{ url_for('actors.update', id=actor['id']) }}">
+        <label for="actor">Actor</label>
+        <br>
+        <input type="text" name="name" placeholder="name" value ="{{ actor.name }}"></input>
+        <input type="text" name="uid" placeholder="uid" value ="{{ actor.uid }}"></input>
+        <input type="text" name="filmography_movie_url" placeholder="filmography_movie_url" value ="{{ actor.filmography_movie_url }}"></input>
+        <input type="text" name="filmography_movie_title" placeholder="filmography_movie_title" value ="{{ actor.filmography_movie_title }}"></input>
+        </input>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if errors %}
+        {{ errors }}
+    {%endif%}
+{% endblock %}
